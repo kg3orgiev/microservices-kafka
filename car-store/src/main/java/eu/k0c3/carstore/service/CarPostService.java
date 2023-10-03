@@ -34,25 +34,24 @@ public class CarPostService {
     }
 
     private CarPostEntity mapCarDtoToEntity(CarPostDTO carPostDTO) {
-        var carPostEntity = new CarPostEntity();
-
+        var carPostEntity =CarPostEntity.builder();
         ownerPostRepository.findById(carPostDTO.getOwnerId())
                 .ifPresentOrElse(owner -> {
-                            carPostEntity.setOwnerPost(owner);
-                            carPostEntity.setContact(owner.getContactNumber());
+                            carPostEntity.ownerPost(owner);
+                            carPostEntity.contact(owner.getContactNumber());
                         },
                         () -> {
                             throw new NoSuchElementException();
                         });
-        carPostEntity.setModel(carPostDTO.getModel());
-        carPostEntity.setBrand(carPostDTO.getBrand());
-        carPostEntity.setPrice(carPostDTO.getPrice());
-        carPostEntity.setCity(carPostDTO.getCity());
-        carPostEntity.setDescription(carPostDTO.getDescription());
-        carPostEntity.setEngineVersion(carPostDTO.getEngineVersion());
-        carPostEntity.setCreatedDate(String.valueOf(new Date()));
+        carPostEntity.model(carPostDTO.getModel());
+        carPostEntity.brand(carPostDTO.getBrand());
+        carPostEntity.price(carPostDTO.getPrice());
+        carPostEntity.city(carPostDTO.getCity());
+        carPostEntity.description(carPostDTO.getDescription());
+        carPostEntity.engineVersion(carPostDTO.getEngineVersion());
+        carPostEntity.createdDate(String.valueOf(new Date()));
 
-        return carPostEntity;
+        return carPostEntity.build();
     }
 
     public void changeCarSales(CarPostDTO carPostDTO, Long id) {

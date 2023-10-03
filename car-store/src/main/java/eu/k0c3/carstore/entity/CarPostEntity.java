@@ -1,6 +1,8 @@
 package eu.k0c3.carstore.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +10,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "car_post")
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class CarPostEntity {
 

@@ -1,6 +1,5 @@
 package eu.k0c3.carstore.service;
 
-import eu.k0c3.carstore.dto.CarPostDTO;
 import eu.k0c3.carstore.dto.OwnerPostDTO;
 import eu.k0c3.carstore.entity.OwnerPostEntity;
 import eu.k0c3.carstore.repository.OwnerPostRepository;
