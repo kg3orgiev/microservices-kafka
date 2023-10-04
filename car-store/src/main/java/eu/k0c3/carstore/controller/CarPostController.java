@@ -20,7 +20,7 @@ public class CarPostController {
     }
 
     @PutMapping("/car/{id}")
-    public void changeCarSales(CarPostDTO carPostDTO, @PathVariable Long id){
+    public void changeCarSales(@RequestBody CarPostDTO carPostDTO, @PathVariable Long id){
         carPostService.changeCarSales(carPostDTO, id);
     }
 
